@@ -49,7 +49,6 @@ public class App : MonoBehaviour
                         var logoMain = main as LogoMain;
                         logoMain.AddListener("onShowLogoComplete", (param) =>
                         {
-                            Debug.Log("LogoScene");
                             this.uiApp.FadeOut(0.5f, () =>
                             {
                                 this.LoadScene<LoadingMain>(eSceneType.LoadingScene);
@@ -67,7 +66,6 @@ public class App : MonoBehaviour
                     {
                         this.uiApp.FadeIn(0.5f, () => 
                         {
-                            Debug.Log("LoadingScene");
                             main.AddListener("onLoadComplete", (data) =>
                             {
                                 this.uiApp.FadeOut(0.5f, () =>
@@ -82,16 +80,14 @@ public class App : MonoBehaviour
                     }
                 case eSceneType.TitleScene:
                     {
-                        Debug.Log("Title Scene");
                         this.uiApp.FadeIn();
 
                         main.AddListener("onClick", (data) =>
                         {
-                            Debug.Log("Title Scene onClick");
-                            //this.uiApp.FadeOut(0.5f, () =>
-                            //{
-                                
-                            //});
+                            this.uiApp.FadeOut(0.5f, () =>
+                            {
+
+                            });
                         });
                         main.Init();
                         break;

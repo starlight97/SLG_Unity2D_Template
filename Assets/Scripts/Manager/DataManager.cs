@@ -60,7 +60,6 @@ public class DataManager
             float progress = (float)(idx + 1) / this.dataPathList.Count;
             this.onDataLoadComplete.Invoke(data.res_name, progress);
             TextAsset asset = (TextAsset)req.asset;
-            Debug.Log(req.asset);
             var typeDef = Type.GetType(data.type);
             this.GetType().GetMethod(nameof(LoadData))
                 .MakeGenericMethod(typeDef).Invoke(this, new string[] { asset.text });
@@ -69,7 +68,6 @@ public class DataManager
             idx++;
         }
         yield return null;
-        Debug.Log("onDataLoadFinished");
         this.onDataLoadFinished.Invoke();
     }
 

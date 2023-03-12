@@ -13,7 +13,7 @@ public class LogoMain : SceneMain
 
     private IEnumerator ShowLogoRoutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return YieldInstructionCache.WaitForSeconds(2f);
 
         this.Dispatch("onShowLogoComplete");
     }

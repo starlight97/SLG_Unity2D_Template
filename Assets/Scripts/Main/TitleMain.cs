@@ -6,7 +6,6 @@ public class TitleMain : SceneMain
 {
     public override void Init(SceneParams param = null)
     {
-        //StartCoroutine(this.TouchToStartRoutine());
         StartCoroutine(this.WaitForClick());
     }
 

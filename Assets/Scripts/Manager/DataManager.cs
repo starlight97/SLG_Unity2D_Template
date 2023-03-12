@@ -52,7 +52,7 @@ public class DataManager
             for (int i = 0; i < 10; i++)
             {
                 this.onDataLoadComplete.Invoke("호출할 데이터 없음", (float)(i+1)/10);
-                yield return new WaitForSeconds(0.1f);
+                yield return YieldInstructionCache.WaitForSeconds(0.1f);
             }
         }
 
@@ -68,7 +68,7 @@ public class DataManager
             this.GetType().GetMethod(nameof(LoadData))
                 .MakeGenericMethod(typeDef).Invoke(this, new string[] { asset.text });
 
-            yield return new WaitForSeconds(0.3f);
+            yield return YieldInstructionCache.WaitForSeconds(0.3f);
             idx++;
         }
         yield return null;
